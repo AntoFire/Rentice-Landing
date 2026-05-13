@@ -229,37 +229,127 @@
           <h2 class="section-title section-title--light">Une offre. Un prix. Zéro prise de tête.</h2>
         </div>
 
-        <div class="pricing__card observe-animate">
-          <div class="pricing__price">
-            <span class="pricing__amount">150€</span>
-            <span class="pricing__period">par campagne · sans abonnement</span>
+        <div class="pricing__layout">
+
+          <!-- Card principale -->
+          <div class="pricing__card observe-animate">
+            <div class="pricing__price">
+              <span class="pricing__amount">150€</span>
+              <span class="pricing__period">par campagne · sans abonnement</span>
+            </div>
+
+            <div class="pricing__channels">
+              <div class="pricing__channel">
+                <span class="pricing__channel-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                </span>
+                Email
+              </div>
+              <span class="pricing__channel-sep" aria-hidden="true">+</span>
+              <div class="pricing__channel">
+                <span class="pricing__channel-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                </span>
+                LinkedIn
+              </div>
+            </div>
+
+            <ul class="pricing__list" role="list">
+              <li class="pricing__item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EAC84A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Extraction de 40–60 contacts recruteurs ciblés
+              </li>
+              <li class="pricing__item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EAC84A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Enrichissement email RGPD-compliant
+              </li>
+              <li class="pricing__item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EAC84A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Séquence email + message LinkedIn personnalisés
+              </li>
+              <li class="pricing__item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EAC84A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                3 relances sur 9 jours
+              </li>
+              <li class="pricing__item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EAC84A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Rapport final : ouvertures, réponses, entretiens
+              </li>
+            </ul>
+
+            <div class="pricing__guarantee">
+              <div class="pricing__guarantee-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EAC84A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div>
+                <div class="pricing__guarantee-title">0 entretien après 15 jours → campagne offerte</div>
+                <div class="pricing__guarantee-desc">Si ta campagne ne génère aucun entretien dans les 15 jours, on relance une nouvelle campagne gratuitement — nouveaux contacts, nouveaux secteurs.</div>
+              </div>
+            </div>
+
+            <a href="#waitlist" class="btn btn--gold btn--large pricing__cta">Réserver ma campagne →</a>
+            <p class="pricing__note">Places limitées — 5 campagnes lancées par semaine max.</p>
           </div>
 
-          <ul class="pricing__list" role="list">
-            <li class="pricing__item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EAC84A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              Extraction de 40–60 contacts recruteurs ciblés
-            </li>
-            <li class="pricing__item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EAC84A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              Enrichissement email RGPD-compliant
-            </li>
-            <li class="pricing__item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EAC84A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              Séquence de 3 emails personnalisés
-            </li>
-            <li class="pricing__item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EAC84A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              Suivi et relances sur 9 jours
-            </li>
-            <li class="pricing__item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EAC84A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              Rapport final : ouvertures, réponses, entretiens
-            </li>
-          </ul>
+          <!-- Timeline garantie -->
+          <div class="pricing__timeline observe-animate">
+            <div class="timeline__header">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EAC84A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Comment fonctionne la garantie
+            </div>
+            <ol class="timeline__list" role="list">
+              <li class="timeline__item">
+                <div class="timeline__marker timeline__marker--active" aria-hidden="true"></div>
+                <div class="timeline__content">
+                  <span class="timeline__day">J0</span>
+                  <span class="timeline__label">Lancement campagne 1 — 40 à 60 contacts ciblés</span>
+                </div>
+              </li>
+              <li class="timeline__item">
+                <div class="timeline__marker" aria-hidden="true"></div>
+                <div class="timeline__content">
+                  <span class="timeline__day">J9</span>
+                  <span class="timeline__label">Dernier email + message LinkedIn envoyé</span>
+                </div>
+              </li>
+              <li class="timeline__item">
+                <div class="timeline__marker" aria-hidden="true"></div>
+                <div class="timeline__content">
+                  <span class="timeline__day">J12–14</span>
+                  <span class="timeline__label">Bilan — on laisse 3 à 5 jours aux retardataires pour répondre</span>
+                </div>
+              </li>
+              <li class="timeline__item timeline__item--guarantee">
+                <div class="timeline__marker timeline__marker--gold" aria-hidden="true"></div>
+                <div class="timeline__content">
+                  <span class="timeline__day">J14</span>
+                  <span class="timeline__label">Si 0 entretien → campagne 2 gratuite sur un nouveau batch (secteurs ou villes différents)</span>
+                </div>
+              </li>
+              <li class="timeline__item">
+                <div class="timeline__marker" aria-hidden="true"></div>
+                <div class="timeline__content">
+                  <span class="timeline__day">J23</span>
+                  <span class="timeline__label">Bilan campagne 2</span>
+                </div>
+              </li>
+              <li class="timeline__item timeline__item--guarantee">
+                <div class="timeline__marker timeline__marker--gold" aria-hidden="true"></div>
+                <div class="timeline__content">
+                  <span class="timeline__day">J28</span>
+                  <span class="timeline__label">Si toujours 0 → campagne 3, dernier essai inclus</span>
+                </div>
+              </li>
+              <li class="timeline__item timeline__item--total">
+                <div class="timeline__marker timeline__marker--cream" aria-hidden="true"></div>
+                <div class="timeline__content">
+                  <span class="timeline__day">~4 sem.</span>
+                  <span class="timeline__label">Maximum garanti — raisonnable pour une recherche active</span>
+                </div>
+              </li>
+            </ol>
+          </div>
 
-          <a href="#waitlist" class="btn btn--gold btn--large pricing__cta">Réserver ma campagne →</a>
-          <p class="pricing__note">Places limitées — 5 campagnes lancées par semaine max.</p>
         </div>
       </div>
     </section>
