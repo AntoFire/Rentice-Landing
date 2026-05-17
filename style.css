@@ -769,40 +769,6 @@ ul { list-style: none; }
   color: rgba(245,242,234,0.6);
 }
 
-/* Canaux email + linkedin */
-.pricing__channels {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 28px;
-  padding: 10px 20px;
-  background: rgba(234,200,74,0.08);
-  border: 1px solid rgba(234,200,74,0.15);
-  border-radius: 999px;
-}
-
-.pricing__channel {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  font-weight: 600;
-  color: rgba(245,242,234,0.9);
-}
-
-.pricing__channel-icon {
-  display: flex;
-  align-items: center;
-  color: var(--gold-400);
-}
-
-.pricing__channel-sep {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--gold-400);
-}
-
 .pricing__list {
   text-align: left;
   display: flex;
