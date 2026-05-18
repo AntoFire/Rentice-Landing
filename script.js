@@ -65,45 +65,35 @@
     });
   }
 
-  // ---- Waitlist form ----
-  const form = document.getElementById('waitlist-form');
-  const confirmMsg = document.getElementById('waitlist-confirm');
+  // ---- Waitlist form (Netlify) ----
   const emailInput = document.getElementById('email');
 
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      const email = emailInput.value.trim();
-
-      if (!email || !isValidEmail(email)) {
-        emailInput.focus();
-        emailInput.style.borderColor = '#e05252';
-        emailInput.style.boxShadow = '0 0 0 3px rgba(224,82,82,0.1)';
-        return;
-      }
-
-      // Reset error state
-      emailInput.style.borderColor = '';
-      emailInput.style.boxShadow = '';
-
-      // Show confirmation
-      form.querySelector('.waitlist__input-group').style.display = 'none';
-      confirmMsg.hidden = false;
-
-      // Reset after 6 seconds
-      setTimeout(function () {
-        form.querySelector('.waitlist__input-group').style.display = '';
-        confirmMsg.hidden = true;
-        emailInput.value = '';
-      }, 6000);
-    });
-
+  if (emailInput) {
     emailInput.addEventListener('input', function () {
       emailInput.style.borderColor = '';
       emailInput.style.boxShadow = '';
     });
   }
+
+  document.getElementById('waitlistForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const form = this;
+    const data = new FormData(form);
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(data).toString()
+    })
+    .then(function () {
+      form.style.display = 'none';
+      document.getElementById('formSuccess').hidden = false;
+    })
+    .catch(function () {
+      form.style.display = 'none';
+      document.getElementById('formSuccess').hidden = false;
+    });
+  });
 
   function isValidEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
