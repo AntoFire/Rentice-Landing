@@ -81,9 +81,9 @@
           <div class="hero__stats animate-hero" style="--delay:0.4s">
             <span class="hero__stat">40–60 entreprises contactées</span>
             <span class="hero__sep" aria-hidden="true">·</span>
-            <span class="hero__stat">~15% taux de réponse moyen</span>
+            <span class="hero__stat">~15% taux de réponse</span>
             <span class="hero__sep" aria-hidden="true">·</span>
-            <span class="hero__stat">150€ par campagne</span>
+            <span class="hero__stat">Garanti jusqu'à l'entretien</span>
           </div>
         </div>
 
@@ -97,16 +97,18 @@
             <div class="mock-card__profile">
               <div class="mock-avatar" aria-hidden="true">LM</div>
               <div>
-                <div class="mock-card__name">Lucas Moreau</div>
-                <div class="mock-card__school">NEOMA BS · Master Marketing</div>
+                <div class="mock-card__name">Antonin D.</div>
+                <div class="mock-card__school">NEOMA Business School</div>
               </div>
             </div>
-            <div class="mock-card__progress-label">
-              <span>Progression</span>
-              <span class="mock-card__progress-pct">53%</span>
-            </div>
-            <div class="mock-card__progress-bar" role="progressbar" aria-valuenow="53" aria-valuemin="0" aria-valuemax="100">
-              <div class="mock-card__progress-fill" style="width:53%"></div>
+            <div class="mock-card__progress-wrap">
+              <div class="mock-card__progress-label">
+                <span>Progression de la campagne</span>
+                <span class="mock-card__progress-pct">53%</span>
+              </div>
+              <div class="mock-card__progress-bar" role="progressbar" aria-valuenow="53" aria-valuemin="0" aria-valuemax="100">
+                <div class="mock-card__progress-fill" style="width:53%"></div>
+              </div>
             </div>
             <div class="mock-card__stats">
               <div class="mock-stat">
@@ -201,6 +203,12 @@
         </div>
       </div>
     </section>
+
+    <!-- MID CTA -->
+    <div class="mid-cta">
+      <a class="btn btn--gold btn--large" href="#waitlist">Je veux ma campagne →</a>
+      <p class="mid-cta-note">Places limitées — 5 campagnes par semaine</p>
+    </div>
 
     <!-- STATS -->
     <section class="stats-section">
@@ -346,7 +354,9 @@
           <p class="section-subtitle">Laisse ton email. On te contacte dès qu'une place se libère.</p>
         </div>
 
-        <form class="waitlist__form observe-animate" id="waitlist-form" novalidate>
+        <form class="waitlist__form observe-animate" id="waitlistForm" name="waitlist" netlify>
+          <input type="hidden" name="form-name" value="waitlist" />
+          <p hidden><input name="bot-field" /></p>
           <div class="waitlist__input-group">
             <label for="email" class="sr-only">Adresse email</label>
             <input
@@ -358,9 +368,17 @@
               required
               autocomplete="email"
             />
+            <label for="whenInput" class="sr-only">Tu cherches une alternance pour quand ?</label>
+            <select id="whenInput" name="when" required class="waitlist__select">
+              <option value="" disabled selected>Tu cherches une alternance pour quand ?</option>
+              <option value="sept-2025">Septembre 2025</option>
+              <option value="jan-2026">Janvier 2026</option>
+              <option value="sept-2026">Septembre 2026</option>
+              <option value="autre">Autre</option>
+            </select>
             <button type="submit" class="btn btn--primary waitlist__submit">Je m'inscris</button>
           </div>
-          <div class="waitlist__confirm" id="waitlist-confirm" aria-live="polite" hidden>
+          <div class="waitlist__confirm" id="formSuccess" aria-live="polite" hidden>
             ✓ Bien reçu ! On revient vers toi dans 48h.
           </div>
           <p class="waitlist__disclaimer">Pas de spam. Juste un message quand ta campagne peut démarrer.</p>
@@ -394,7 +412,7 @@
       <nav class="footer__links" aria-label="Liens légaux">
         <a href="#" class="footer__link">Mentions légales</a>
         <a href="#" class="footer__link">Politique de confidentialité</a>
-        <a href="mailto:contact@rentice.app" class="footer__link">Contact</a>
+        <a href="mailto:rentice.contact@gmail.com" class="footer__link">Contact</a>
       </nav>
 
       <p class="footer__copy">© 2025 Rentice — rentice.app</p>
