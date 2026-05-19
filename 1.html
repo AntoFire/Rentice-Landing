@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard 1 — Price Analysis | Crypto Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+  <style>
+    /* ── Reset & base ──────────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0a0f1e;
+      --bg-card:   #111827;
+      --bg-card2:  #1a2235;
+      --border:    #1e2d45;
+      --text:      #e2e8f0;
+      --muted:     #64748b;
+      --accent:    #3b82f6;
+      --gold:      #f59e0b;
+      --green:     #22c55e;
+      --red:       #ef4444;
+      --radius:    10px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* ── Loading overlay ───────────────────────────────────────────────────── */
+    #loading-overlay {
+      position: fixed; inset: 0; z-index: 999;
+      background: var(--bg);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 24px;
+      transition: opacity 0.6s ease;
+    }
+
+    .loading-logo {
+      font-size: 1.5rem; font-weight: 700;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      letter-spacing: -0.5px;
+    }
+
+    .loading-track {
+      width: 320px; height: 4px;
+      background: var(--border);
+      border-radius: 9999px; overflow: hidden;
+    }
+
+    #loading-bar {
+      height: 100%; width: 0%;
+      background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+      border-radius: 9999px;
+      transition: width 0.5s ease;
+    }
+
+    #loading-label {
+      color: var(--muted); font-size: 0.85rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* ── Site header ───────────────────────────────────────────────────────── */
+    .site-header {
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      position: sticky; top: 0; z-index: 100;
+    }
+
+    .site-header__inner {
+      max-width: 1400px; margin: 0 auto;
+      display: flex; align-items: center; gap: 32px;
+      height: 56px;
+    }
+
+    .site-header__brand {
+      font-size: 0.95rem; font-weight: 700;
+      color: var(--text); text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .site-header__brand span {
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+
+    .site-header__back {
+      font-size: 0.8rem; color: var(--muted);
+      text-decoration: none;
+      display: flex; align-items: center; gap: 4px;
+      transition: color 0.2s;
+    }
+    .site-header__back:hover { color: var(--text); }
+
+    /* ── Tab navigation ────────────────────────────────────────────────────── */
+    .tab-nav {
+      display: flex; gap: 4px;
+      margin-left: auto;
+    }
+
+    .nav-tab {
+      padding: 6px 16px;
+      border: none; background: transparent;
+      color: var(--muted); font-size: 0.82rem;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer; border-radius: 6px;
+      transition: all 0.2s; white-space: nowrap;
+    }
+    .nav-tab:hover { background: var(--bg-card2); color: var(--text); }
+    .nav-tab.active {
+      background: var(--accent) + '22';
+      background: rgba(59,130,246,0.15);
+      color: #93c5fd;
+      font-weight: 500;
+    }
+
+    /* ── Main layout ───────────────────────────────────────────────────────── */
+    .main { max-width: 1400px; margin: 0 auto; padding: 32px 24px; }
+
+    .section { display: none; }
+    .section.active { display: block; }
+
+    /* ── Section header ────────────────────────────────────────────────────── */
+    .section-header { margin-bottom: 28px; }
+    .section-header h2 {
+      font-size: 1.35rem; font-weight: 700;
+      letter-spacing: -0.3px; margin-bottom: 6px;
+    }
+    .section-header p { color: var(--muted); font-size: 0.85rem; }
+
+    /* ── Cards ─────────────────────────────────────────────────────────────── */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    .card-title {
+      font-size: 0.75rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--muted); margin-bottom: 16px;
+    }
+
+    .chart-wrap {
+      position: relative;
+      height: 420px;
+    }
+
+    .chart-wrap--sm { height: 320px; }
+    .chart-wrap--md { height: 360px; }
+
+    /* ── Grid helpers ──────────────────────────────────────────────────────── */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .grid-opt { display: grid; grid-template-columns: 3fr 2fr; gap: 20px; }
+
+    @media (max-width: 900px) {
+      .grid-2, .grid-3, .grid-opt { grid-template-columns: 1fr; }
+    }
+
+    /* ── Stat mini-cards ───────────────────────────────────────────────────── */
+    .stat-mini {
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 18px;
+    }
+    .stat-mini__label {
+      font-size: 0.72rem; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.07em;
+      margin-bottom: 4px;
+    }
+    .stat-mini__value {
+      font-size: 1.4rem; font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .stat-mini-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    /* ── Tables ────────────────────────────────────────────────────────────── */
+    .table-wrap { overflow-x: auto; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+    }
+    thead th {
+      text-align: left;
+      padding: 8px 12px;
+      color: var(--muted);
+      font-weight: 500;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    tbody tr { border-bottom: 1px solid var(--border); }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: var(--bg-card2); }
+    tbody td {
+      padding: 9px 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+    }
+    td:first-child {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    .pos { color: var(--green); }
+    .neg { color: var(--red); }
+
+    /* ── Dot color indicator ───────────────────────────────────────────────── */
+    .dot {
+      display: inline-block;
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── Select ────────────────────────────────────────────────────────────── */
+    select {
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      outline: none;
+    }
+    select:focus { border-color: var(--accent); }
+
+    /* ── Returns section layout ────────────────────────────────────────────── */
+    .returns-controls {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 20px;
+    }
+    .returns-controls label { color: var(--muted); font-size: 0.82rem; }
+
+    /* ── Optimisation section ──────────────────────────────────────────────── */
+    .opt-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .opt-panel {
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .opt-panel__label {
+      font-size: 0.72rem; text-transform: uppercase;
+      letter-spacing: 0.07em; color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .opt-panel__row {
+      display: flex; justify-content: space-between;
+      margin-bottom: 4px;
+    }
+    .opt-panel__key { color: var(--muted); font-size: 0.8rem; }
+    .opt-panel__val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; font-weight: 500;
+    }
+
+    .section-note {
+      color: var(--muted); font-size: 0.75rem;
+      margin-top: 6px;
+    }
+
+    .gap-lg { margin-top: 24px; }
+  </style>
+</head>
+<body>
+
+  <!-- Loading overlay -->
+  <div id="loading-overlay">
+    <div class="loading-logo">Crypto Portfolio · Dashboard 1</div>
+    <div class="loading-track"><div id="loading-bar"></div></div>
+    <div id="loading-label">Initialising…</div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="index.html" class="site-header__back">← Home</a>
+      <span class="site-header__brand"><span>Dashboard 1</span> — Price Analysis</span>
+      <nav class="tab-nav">
+        <button class="nav-tab active" data-section="base100">Base-100 (3Y)</button>
+        <button class="nav-tab" data-section="returns">Daily Returns (3Y)</button>
+        <button class="nav-tab" data-section="optimise">Portfolio Optimisation</button>
+        <button class="nav-tab" data-section="lastmonth">Last Month</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- ── Section 1: Base-100 ─────────────────────────────────────────────── -->
+    <div id="base100" class="section active">
+      <div class="section-header">
+        <h2>Base-100 Performance — 3 Years</h2>
+        <p>All cryptocurrencies re-indexed to 100 at the start of the observation period. Stablecoins (USDT, USDC) appear as flat reference lines.</p>
+      </div>
+
+      <div class="card" style="margin-bottom:20px">
+        <div class="card-title">Cumulative Price Performance (Base = 100)</div>
+        <div class="chart-wrap"><canvas id="base100Chart"></canvas></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">3-Year Summary Statistics</div>
+        <div class="table-wrap">
+          <table id="stats3y">
+            <thead>
+              <tr>
+                <th>Asset</th>
+                <th>Total Return</th>
+                <th>Ann. Volatility</th>
+                <th>Sharpe Ratio</th>
+                <th>Max Drawdown</th>
+                <th>All-Time High</th>
+                <th>All-Time Low</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <p class="section-note">Sharpe ratio computed with a 4.5% annual risk-free rate. Crypto = 365 trading days.</p>
+      </div>
+    </div>
+
+    <!-- ── Section 2: Daily Returns ───────────────────────────────────────── -->
+    <div id="returns" class="section">
+      <div class="section-header">
+        <h2>Daily Returns Analysis — 3 Years</h2>
+        <p>Daily percentage price changes with 30-day rolling annualised volatility overlay. Select a coin to inspect.</p>
+      </div>
+
+      <div class="returns-controls">
+        <label for="returns-coin-select">Select asset:</label>
+        <select id="returns-coin-select"></select>
+      </div>
+
+      <div class="stat-mini-grid">
+        <div class="stat-mini">
+          <div class="stat-mini__label">Mean Daily Return</div>
+          <div class="stat-mini__value" id="ret-mean">—</div>
+        </div>
+        <div class="stat-mini">
+          <div class="stat-mini__label">Daily Std Dev</div>
+          <div class="stat-mini__value" id="ret-std">—</div>
+        </div>
+        <div class="stat-mini">
+          <div class="stat-mini__label">Ann. Volatility</div>
+          <div class="stat-mini__value" id="ret-vol">—</div>
+        </div>
+        <div class="stat-mini">
+          <div class="stat-mini__label">Skewness</div>
+          <div class="stat-mini__value" id="ret-skew">—</div>
+        </div>
+        <div class="stat-mini">
+          <div class="stat-mini__label">Excess Kurtosis</div>
+          <div class="stat-mini__value" id="ret-kurt">—</div>
+        </div>
+        <div class="stat-mini">
+          <div class="stat-mini__label">Max Drawdown</div>
+          <div class="stat-mini__value" id="ret-mdd">—</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Daily Returns (%) + Rolling 30-Day Volatility</div>
+        <div class="chart-wrap"><canvas id="returnsChart"></canvas></div>
+      </div>
+    </div>
+
+    <!-- ── Section 3: Portfolio Optimisation ──────────────────────────────── -->
+    <div id="optimise" class="section">
+      <div class="section-header">
+        <h2>Portfolio Optimisation — Mean-Variance (Markowitz)</h2>
+        <p>Monte Carlo simulation of 6,000 random portfolios. Colour gradient maps Sharpe ratio (blue = low → gold = high). Stablecoins excluded.</p>
+      </div>
+
+      <div class="opt-stats-grid">
+        <div class="opt-panel">
+          <div class="opt-panel__label">★ Maximum Sharpe Ratio Portfolio</div>
+          <div class="opt-panel__row">
+            <span class="opt-panel__key">Expected Annual Return</span>
+            <span class="opt-panel__val pos" id="opt-ms-ret">—</span>
+          </div>
+          <div class="opt-panel__row">
+            <span class="opt-panel__key">Annual Volatility (σ)</span>
+            <span class="opt-panel__val" id="opt-ms-std">—</span>
+          </div>
+          <div class="opt-panel__row">
+            <span class="opt-panel__key">Sharpe Ratio</span>
+            <span class="opt-panel__val" id="opt-ms-shr">—</span>
+          </div>
+        </div>
+        <div class="opt-panel">
+          <div class="opt-panel__label">● Minimum Variance Portfolio</div>
+          <div class="opt-panel__row">
+            <span class="opt-panel__key">Expected Annual Return</span>
+            <span class="opt-panel__val pos" id="opt-mv-ret">—</span>
+          </div>
+          <div class="opt-panel__row">
+            <span class="opt-panel__key">Annual Volatility (σ)</span>
+            <span class="opt-panel__val" id="opt-mv-std">—</span>
+          </div>
+          <div class="opt-panel__row">
+            <span class="opt-panel__key">Sharpe Ratio</span>
+            <span class="opt-panel__val" id="opt-mv-shr">—</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-opt">
+        <div class="card">
+          <div class="card-title">Efficient Frontier (Risk vs Return)</div>
+          <div class="chart-wrap--md" style="position:relative;height:360px"><canvas id="frontierChart"></canvas></div>
+        </div>
+        <div class="card">
+          <div class="card-title">Max Sharpe Portfolio — Asset Weights</div>
+          <div style="position:relative;height:280px"><canvas id="weightsChart"></canvas></div>
+          <div class="table-wrap" style="margin-top:16px">
+            <table id="weights-table">
+              <thead><tr><th>Asset</th><th>Max Sharpe</th><th>Min Variance</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <p class="section-note" style="margin-top:12px">
+        Risk-free rate: 4.5% annual · Crypto: 365 trading days/year · Weights constrained to [0, 1] (long-only)
+      </p>
+    </div>
+
+    <!-- ── Section 4: Last Month ───────────────────────────────────────────── -->
+    <div id="lastmonth" class="section">
+      <div class="section-header">
+        <h2>Last 30 Days — Price Analysis</h2>
+        <p>All assets normalised to 100 at T−30. Comparison of recent short-term performance.</p>
+      </div>
+
+      <div class="card" style="margin-bottom:20px">
+        <div class="card-title">30-Day Relative Performance (Base = 100 at T−30)</div>
+        <div class="chart-wrap"><canvas id="lastMonthChart"></canvas></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">30-Day Summary Statistics</div>
+        <div class="table-wrap">
+          <table id="stats1m">
+            <thead>
+              <tr>
+                <th>Asset</th>
+                <th>30D Return</th>
+                <th>Ann. Volatility</th>
+                <th>Max Drawdown</th>
+                <th>Period High</th>
+                <th>Period Low</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="scripts/config.js"></script>
+  <script src="scripts/analysis.js"></script>
+  <script src="scripts/app.js"></script>
+</body>
+</html>
