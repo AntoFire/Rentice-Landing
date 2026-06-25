@@ -65,39 +65,6 @@
     });
   }
 
-  // ---- Waitlist form (Netlify) ----
-  const emailInput = document.getElementById('email');
-
-  if (emailInput) {
-    emailInput.addEventListener('input', function () {
-      emailInput.style.borderColor = '';
-      emailInput.style.boxShadow = '';
-    });
-  }
-
-  document.getElementById('waitlistForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    const form = this;
-    const data = new FormData(form);
-
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(data).toString()
-    })
-    .then(function () {
-      form.style.display = 'none';
-      document.getElementById('formSuccess').hidden = false;
-    })
-    .catch(function () {
-      form.style.display = 'none';
-      document.getElementById('formSuccess').hidden = false;
-    });
-  });
-
-  function isValidEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  }
 
   // ---- Mock card progress bar animation ----
   const progressFill = document.querySelector('.mock-card__progress-fill');
