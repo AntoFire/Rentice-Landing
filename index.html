@@ -350,39 +350,16 @@
     <section class="waitlist" id="waitlist">
       <div class="container waitlist__inner">
         <div class="section-header observe-animate">
-          <h2 class="section-title">Rejoins la liste d'attente</h2>
-          <p class="section-subtitle">Laisse ton email. On te contacte dès qu'une place se libère.</p>
+          <h2 class="section-title">Prêt à décrocher ton alternance ?</h2>
+          <p class="section-subtitle">Remplis le formulaire d'onboarding — on s'occupe du reste.</p>
         </div>
 
-        <form class="waitlist__form observe-animate" id="waitlistForm" name="waitlist" netlify>
-          <input type="hidden" name="form-name" value="waitlist" />
-          <p hidden><input name="bot-field" /></p>
-          <div class="waitlist__input-group">
-            <label for="email" class="sr-only">Adresse email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              class="waitlist__input"
-              placeholder="ton@email.com"
-              required
-              autocomplete="email"
-            />
-            <label for="whenInput" class="sr-only">Tu cherches une alternance pour quand ?</label>
-            <select id="whenInput" name="when" required class="waitlist__select">
-              <option value="" disabled selected>Tu cherches une alternance pour quand ?</option>
-              <option value="sept-2025">Septembre 2025</option>
-              <option value="jan-2026">Janvier 2026</option>
-              <option value="sept-2026">Septembre 2026</option>
-              <option value="autre">Autre</option>
-            </select>
-            <button type="submit" class="btn btn--primary waitlist__submit">Je m'inscris</button>
-          </div>
-          <div class="waitlist__confirm" id="formSuccess" aria-live="polite" hidden>
-            ✓ Bien reçu ! On revient vers toi dans 48h.
-          </div>
-          <p class="waitlist__disclaimer">Pas de spam. Juste un message quand ta campagne peut démarrer.</p>
-        </form>
+        <div class="waitlist__cta observe-animate">
+          <a href="https://form.jotform.com/261302830869055" target="_blank" rel="noopener noreferrer" class="btn btn--gold btn--large waitlist__jotform-btn">
+            Commencer l'onboarding !
+          </a>
+          <p class="waitlist__disclaimer">Places limitées — 5 campagnes lancées par semaine max.</p>
+        </div>
       </div>
     </section>
 
