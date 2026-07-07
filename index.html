@@ -66,11 +66,11 @@
           </div>
 
           <h1 class="hero__title animate-hero" style="--delay:0.1s">
-            Décroche ton alternance.<br />On s'occupe du reste.
+            Décroche ton<br /><span class="hero__highlight">alternance</span>.<br />On s'occupe du reste.
           </h1>
 
           <p class="hero__subtitle animate-hero" style="--delay:0.2s">
-            Rentice lance des campagnes de candidatures spontanées pour les étudiants en alternance. Tu remplis un formulaire. On contacte les recruteurs à ta place.
+            Tu postules sur les jobboards. Silence radio. Rentice contacte 40 à 60 recruteurs à ta place — emails personnalisés, relances automatiques, entretiens garantis.
           </p>
 
           <div class="hero__actions animate-hero" style="--delay:0.3s">
@@ -78,55 +78,84 @@
             <a href="#fonctionnement" class="btn btn--outline">Comment ça marche</a>
           </div>
 
-          <div class="hero__stats animate-hero" style="--delay:0.4s">
-            <span class="hero__stat">40–60 entreprises contactées</span>
-            <span class="hero__sep" aria-hidden="true">·</span>
-            <span class="hero__stat">~15% taux de réponse</span>
-            <span class="hero__sep" aria-hidden="true">·</span>
-            <span class="hero__stat">Garanti jusqu'à l'entretien</span>
+          <div class="hero__social-proof animate-hero" style="--delay:0.4s">
+            <div class="avatar-stack" aria-hidden="true">
+              <div class="avatar-stack__item">ML</div>
+              <div class="avatar-stack__item">JB</div>
+              <div class="avatar-stack__item">SR</div>
+              <div class="avatar-stack__item">AC</div>
+            </div>
+            <span class="hero__social-text"><strong>12 étudiants</strong> ont lancé leur campagne</span>
           </div>
         </div>
 
-        <div class="hero__mock animate-hero" style="--delay:0.5s" aria-label="Aperçu d'une campagne en cours">
-          <div class="mock-card">
-            <div class="mock-card__header">
-              <div class="mock-card__dot mock-card__dot--green"></div>
-              <span class="mock-card__title">Campagne en cours</span>
-              <span class="mock-card__badge">Live</span>
-            </div>
-            <div class="mock-card__profile">
-              <div class="mock-avatar" aria-hidden="true">LM</div>
-              <div>
-                <div class="mock-card__name">Antonin D.</div>
-                <div class="mock-card__school">NEOMA Business School</div>
+        <div class="hero__mock animate-hero" style="--delay:0.5s" aria-label="Exemple de réponses reçues après une campagne Rentice">
+          <div class="inbox-card">
+            <div class="inbox-card__header">
+              <div class="inbox-card__header-left">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0D3D2C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <span class="inbox-card__title">Réponses reçues</span>
               </div>
+              <span class="inbox-card__badge">3 nouveaux</span>
             </div>
-            <div class="mock-card__progress-wrap">
-              <div class="mock-card__progress-label">
-                <span>Progression de la campagne</span>
-                <span class="mock-card__progress-pct">53%</span>
-              </div>
-              <div class="mock-card__progress-bar" role="progressbar" aria-valuenow="53" aria-valuemin="0" aria-valuemax="100">
-                <div class="mock-card__progress-fill" style="width:53%"></div>
+
+            <div class="inbox-email inbox-email--new">
+              <div class="inbox-avatar inbox-avatar--green">ML</div>
+              <div class="inbox-email__body">
+                <div class="inbox-email__meta">
+                  <span class="inbox-email__from">Marie L. · DRH @ Publicis</span>
+                  <span class="inbox-email__time">10:23</span>
+                </div>
+                <div class="inbox-email__subject">Re : Candidature spontanée — Marketing</div>
+                <div class="inbox-email__preview">Votre profil nous intéresse, seriez-vous disponible la semaine prochaine ?</div>
               </div>
             </div>
-            <div class="mock-card__stats">
-              <div class="mock-stat">
-                <div class="mock-stat__value">32</div>
-                <div class="mock-stat__label">Emails envoyés</div>
-              </div>
-              <div class="mock-stat">
-                <div class="mock-stat__value mock-stat__value--gold">5</div>
-                <div class="mock-stat__label">Réponses</div>
-              </div>
-              <div class="mock-stat">
-                <div class="mock-stat__value mock-stat__value--green">2</div>
-                <div class="mock-stat__label">Entretiens</div>
+
+            <div class="inbox-email inbox-email--new">
+              <div class="inbox-avatar inbox-avatar--blue">TG</div>
+              <div class="inbox-email__body">
+                <div class="inbox-email__meta">
+                  <span class="inbox-email__from">Thomas G. · Talent @ BNP Paribas</span>
+                  <span class="inbox-email__time">Hier</span>
+                </div>
+                <div class="inbox-email__subject">Re : Alternance Finance — votre candidature</div>
+                <div class="inbox-email__preview">Nous serions ravis d'échanger avec vous pour un entretien...</div>
               </div>
             </div>
-            <div class="mock-card__footer">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#7A9B7A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              <span>Séquence active — J+4 / J+9</span>
+
+            <div class="inbox-email">
+              <div class="inbox-avatar inbox-avatar--purple">SB</div>
+              <div class="inbox-email__body">
+                <div class="inbox-email__meta">
+                  <span class="inbox-email__from">Sophie B. · RH @ L'Oréal</span>
+                  <span class="inbox-email__time">Hier</span>
+                </div>
+                <div class="inbox-email__subject">Votre profil nous a retenu</div>
+                <div class="inbox-email__preview">Suite à votre candidature, notre équipe souhaite vous rencontrer...</div>
+              </div>
+            </div>
+
+            <div class="inbox-card__footer">
+              <span class="inbox-card__footer-text">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#7A9B7A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                J+7 · Campagne Antonin D.
+              </span>
+              <div class="inbox-card__stats">
+                <div class="inbox-stat">
+                  <div class="inbox-stat__value">47</div>
+                  <div class="inbox-stat__label">envoyés</div>
+                </div>
+                <div class="inbox-stat-sep"></div>
+                <div class="inbox-stat">
+                  <div class="inbox-stat__value inbox-stat__value--gold">7</div>
+                  <div class="inbox-stat__label">réponses</div>
+                </div>
+                <div class="inbox-stat-sep"></div>
+                <div class="inbox-stat">
+                  <div class="inbox-stat__value inbox-stat__value--green">3</div>
+                  <div class="inbox-stat__label">entretiens</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -136,11 +165,18 @@
     <!-- CRÉDIBILITÉ STRIP -->
     <section class="cred" id="about">
       <div class="container cred__inner">
-        <div class="cred__founder observe-animate">
-          <span class="pill pill--gold-outline">Créé par un étudiant</span>
-          <p class="cred__founder-text">
-            Rentice est fondé par un étudiant de NEOMA Business School — pour des étudiants qui en ont assez d'attendre.
-          </p>
+
+        <div class="cred__quote observe-animate">
+          <blockquote class="cred__blockquote">
+            « J'ai cherché mon alternance pendant des mois. Silence radio, candidatures dans le vide. J'ai créé Rentice parce que ce système est cassé — et que personne ne devrait galérer autant pour trouver une entreprise. »
+          </blockquote>
+          <div class="cred__author">
+            <div class="cred__author-avatar">AC</div>
+            <div>
+              <div class="cred__author-name">Antonin C.</div>
+              <div class="cred__author-role">NEOMA Business School · Fondateur de Rentice</div>
+            </div>
+          </div>
         </div>
 
         <div class="cred__stats observe-animate">
@@ -162,6 +198,7 @@
             <div class="cred__stat-source">— Stepstone</div>
           </div>
         </div>
+
       </div>
     </section>
 
@@ -173,32 +210,34 @@
           <p class="section-subtitle">3 étapes. 48h. Des entretiens.</p>
         </div>
 
-        <div class="how__grid">
-          <div class="feature-card observe-animate" style="--stagger:0s">
-            <div class="feature-card__icon feature-card__icon--sage" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0D3D2C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
-            </div>
-            <div class="feature-card__step">Étape 1</div>
-            <h3 class="feature-card__title">Tu remplis le formulaire</h3>
-            <p class="feature-card__desc">Ton profil, tes secteurs cibles, ton pitch. 5 minutes.</p>
+        <div class="how__steps">
+          <div class="how__step observe-animate" style="--stagger:0s">
+            <div class="how__step-num" aria-hidden="true">01</div>
+            <div class="how__step-tag">5 minutes</div>
+            <h3 class="how__step-title">Tu remplis le formulaire</h3>
+            <p class="how__step-desc">Ton profil, tes secteurs cibles, ton pitch. C'est tout — on s'occupe du reste.</p>
           </div>
 
-          <div class="feature-card observe-animate" style="--stagger:0.1s">
-            <div class="feature-card__icon feature-card__icon--gold" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0D3D2C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-            </div>
-            <div class="feature-card__step">Étape 2</div>
-            <h3 class="feature-card__title">On lance ta campagne</h3>
-            <p class="feature-card__desc">40 à 60 recruteurs ciblés sur Apollo. Emails personnalisés. Séquence de 3 relances sur 9 jours.</p>
+          <div class="how__connector" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--cream-200)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </div>
 
-          <div class="feature-card feature-card--dark observe-animate" style="--stagger:0.2s">
-            <div class="feature-card__icon feature-card__icon--dark" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EAC84A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            </div>
-            <div class="feature-card__step feature-card__step--light">Étape 3</div>
-            <h3 class="feature-card__title feature-card__title--light">Tu décroches des entretiens</h3>
-            <p class="feature-card__desc feature-card__desc--light">On te transfère les réponses positives. Tu n'as plus qu'à te préparer.</p>
+          <div class="how__step observe-animate" style="--stagger:0.12s">
+            <div class="how__step-num" aria-hidden="true">02</div>
+            <div class="how__step-tag">sous 48h</div>
+            <h3 class="how__step-title">On lance ta campagne</h3>
+            <p class="how__step-desc">40 à 60 recruteurs ciblés sur Apollo. Emails personnalisés. Séquence de 3 relances sur 9 jours.</p>
+          </div>
+
+          <div class="how__connector" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--cream-200)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </div>
+
+          <div class="how__step how__step--dark observe-animate" style="--stagger:0.24s">
+            <div class="how__step-num" aria-hidden="true">03</div>
+            <div class="how__step-tag">résultat</div>
+            <h3 class="how__step-title">Tu décroches des entretiens</h3>
+            <p class="how__step-desc">On te transfère les réponses positives. Tu n'as plus qu'à te préparer.</p>
           </div>
         </div>
       </div>
