@@ -348,10 +348,10 @@ ul { list-style: none; }
 
 .hero__title {
   font-family: var(--font-display);
-  font-size: clamp(44px, 5.5vw, 72px);
+  font-size: clamp(40px, 4.5vw, 58px);
   font-weight: 700;
   color: var(--green-900);
-  line-height: 1.08;
+  line-height: 1.1;
 }
 
 .hero__subtitle {
@@ -1018,6 +1018,7 @@ ul { list-style: none; }
   border: 1px solid var(--cream-200);
   border-radius: var(--radius-lg);
   padding: 36px 28px 32px;
+  padding-right: 80px;
   position: relative;
   overflow: hidden;
   transition: transform var(--transition), box-shadow var(--transition);
@@ -1083,6 +1084,7 @@ ul { list-style: none; }
   margin-bottom: 12px;
   line-height: 1.2;
   position: relative;
+  hyphens: none;
 }
 
 .how__step--dark .how__step-title {
@@ -1094,6 +1096,8 @@ ul { list-style: none; }
   color: var(--cream-700);
   line-height: 1.65;
   position: relative;
+  hyphens: none;
+  overflow-wrap: break-word;
 }
 
 .how__step--dark .how__step-desc {
