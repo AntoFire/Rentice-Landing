@@ -82,6 +82,26 @@
     progressObserver.observe(progressFill.closest('.mock-card'));
   }
 
+  // ---- FAQ accordion ----
+  document.querySelectorAll('.faq__question').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      const item = btn.closest('.faq__item');
+      const isOpen = item.classList.contains('faq__item--open');
+
+      // Close all
+      document.querySelectorAll('.faq__item--open').forEach(function (el) {
+        el.classList.remove('faq__item--open');
+        el.querySelector('.faq__question').setAttribute('aria-expanded', 'false');
+      });
+
+      // Open clicked (unless it was already open)
+      if (!isOpen) {
+        item.classList.add('faq__item--open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
   // ---- Smooth scroll for anchor links ----
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener('click', function (e) {
