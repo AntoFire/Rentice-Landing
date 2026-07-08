@@ -457,6 +457,35 @@ ul { list-style: none; }
   font-weight: 600;
 }
 
+/* ---- Hero Trust Badges ---- */
+
+.hero__trust {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.hero__trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--sage-500);
+}
+
+.hero__trust-item svg {
+  color: var(--sage-500);
+  flex-shrink: 0;
+}
+
+.hero__trust-sep {
+  color: var(--cream-200);
+  font-size: 14px;
+  line-height: 1;
+}
+
 /* ---- Mock UI Card ---- */
 
 .hero__mock {
@@ -878,16 +907,16 @@ ul { list-style: none; }
   align-items: stretch;
   gap: 0;
   width: 100%;
-  max-width: 680px;
+  max-width: 760px;
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(245,242,234,0.1);
   border-radius: var(--radius-lg);
-  padding: 28px 0;
+  padding: 36px 0;
 }
 
 .cred__stat {
   flex: 1;
-  padding: 0 28px;
+  padding: 0 32px;
   text-align: center;
 }
 .cred__stat:first-child { padding-left: 0; }
