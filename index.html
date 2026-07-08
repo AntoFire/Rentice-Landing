@@ -3,8 +3,147 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rentice — Décroche ton alternance</title>
-  <meta name="description" content="Rentice lance des campagnes de candidatures spontanées pour les étudiants en alternance. Tu remplis un formulaire. On contacte les recruteurs à ta place." />
+  <title>Rentice — Trouver son alternance par candidature spontanée | Campagnes d'outreach recruteurs</title>
+  <meta name="description" content="Rentice contacte 40 à 60 recruteurs à ta place par email personnalisé. Campagnes de candidatures spontanées pour décrocher ton alternance en moins de 15 jours. Sans abonnement." />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://rentice.app/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://rentice.app/" />
+  <meta property="og:locale"      content="fr_FR" />
+  <meta property="og:site_name"   content="Rentice" />
+  <meta property="og:title"       content="Rentice — Décroche ton alternance par candidature spontanée" />
+  <meta property="og:description" content="Rentice contacte 40 à 60 recruteurs à ta place par email personnalisé. Des entretiens en moins de 15 jours, sans abonnement." />
+  <meta property="og:image"       content="https://rentice.app/og-image.png" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt"   content="Rentice — Campagnes d'alternance par candidature spontanée" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Rentice — Décroche ton alternance par candidature spontanée" />
+  <meta name="twitter:description" content="Rentice contacte 40 à 60 recruteurs à ta place. Des entretiens en moins de 15 jours." />
+  <meta name="twitter:image"       content="https://rentice.app/og-image.png" />
+
+  <!-- Schema JSON-LD : Organization + WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://rentice.app/#organization",
+        "name": "Rentice",
+        "url": "https://rentice.app",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://rentice.app/og-image.png"
+        },
+        "description": "Rentice lance des campagnes de candidatures spontanées pour les étudiants en recherche d'alternance. Nous contactons 40 à 60 recruteurs ciblés à ta place par emails personnalisés.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "rentice.contact@gmail.com",
+          "contactType": "customer support",
+          "availableLanguage": "French"
+        },
+        "sameAs": []
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://rentice.app/#website",
+        "url": "https://rentice.app",
+        "name": "Rentice",
+        "description": "Campagnes de candidatures spontanées pour décrocher ton alternance",
+        "publisher": { "@id": "https://rentice.app/#organization" },
+        "inLanguage": "fr-FR"
+      },
+      {
+        "@type": "Service",
+        "@id": "https://rentice.app/#service",
+        "name": "Campagne de candidature spontanée pour alternance",
+        "provider": { "@id": "https://rentice.app/#organization" },
+        "description": "Campagne d'outreach email personnalisé vers 40 à 60 recruteurs ciblés pour les étudiants en recherche d'alternance.",
+        "offers": {
+          "@type": "Offer",
+          "price": "150",
+          "priceCurrency": "EUR",
+          "priceValidUntil": "2026-12-31",
+          "availability": "https://schema.org/LimitedAvailability",
+          "description": "Campagne complète : extraction contacts, emails personnalisés, 3 relances sur 9 jours, rapport final."
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "France"
+        },
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "Étudiants en recherche d'alternance"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Schema JSON-LD : FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "C'est quoi le marché caché de l'alternance ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "70% des postes en alternance ne sont jamais publiés sur des jobboards comme Indeed ou Welcome to the Jungle. Les entreprises les pourvoient directement via leur réseau ou à partir de candidatures spontanées reçues. C'est ce qu'on appelle le marché caché. Rentice t'y donne accès en contactant directement les recruteurs par email personnalisé."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Comment fonctionne une campagne de candidature spontanée ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tu remplis un formulaire en 5 minutes : ton profil, tes secteurs cibles, ta localisation. On extrait ensuite 40 à 60 contacts recruteurs via Apollo, on rédige des emails personnalisés à ton nom, et on envoie une séquence de 3 messages sur 9 jours. Tu valides chaque email avant qu'il parte. Tu reçois les réponses positives directement."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Les emails envoyés semblent-ils humains aux recruteurs ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui. Chaque email est personnalisé selon l'entreprise ciblée — secteur, taille, poste ouvert — et rédigé dans un style naturel. Tu lis et valides chaque message avant envoi. Les recruteurs reçoivent un email qui ressemble à une vraie démarche personnelle, pas à un envoi en masse."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Combien de temps avant de recevoir des réponses ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La campagne se lance sous 48h après ton onboarding. Les premières réponses arrivent généralement entre J+3 et J+7. La séquence complète dure 9 jours. On garantit des entretiens dans les 15 jours — si ce n'est pas le cas, on relance une deuxième campagne gratuitement."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Est-ce que Rentice est conforme au RGPD ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui. Les contacts recruteurs sont enrichis via des sources professionnelles publiques. Les emails de prospection B2B vers des recruteurs entrent dans le cadre légal de la prospection professionnelle. Tes données personnelles ne sont jamais revendues et sont supprimées sur demande."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Que se passe-t-il si je n'obtiens aucun entretien ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Si ta campagne ne génère aucun entretien dans les 15 jours, on relance une deuxième campagne gratuitement — nouveaux contacts, nouveaux secteurs ou nouvelles villes. Et si la deuxième ne donne rien non plus, on relance une troisième. Au total, tu es couvert sur ~4 semaines de prospection intensive, sans payer plus."
+        }
+      }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -223,8 +362,8 @@
     <section class="how" id="fonctionnement">
       <div class="container">
         <div class="section-header observe-animate">
-          <h2 class="section-title">Simple comme bonjour.</h2>
-          <p class="section-subtitle">3 étapes. 48h. Des entretiens.</p>
+          <h2 class="section-title">Comment ça marche ?</h2>
+          <p class="section-subtitle">3 étapes pour décrocher ton alternance par candidature spontanée.</p>
         </div>
 
         <div class="how__steps">
@@ -244,6 +383,16 @@
             <div class="how__step-tag">sous 48h</div>
             <h3 class="how__step-title">On lance ta campagne</h3>
             <p class="how__step-desc">40 à 60 recruteurs ciblés sur Apollo. Emails personnalisés. Séquence de 3 relances sur 9 jours.</p>
+
+            <div class="how__email-preview" aria-hidden="true">
+              <div class="how__email-meta">
+                <span class="how__email-row"><span class="how__email-label">À</span> marie.l@publicis.com</span>
+                <span class="how__email-row"><span class="how__email-label">Objet</span> Candidature alternance — Marketing</span>
+              </div>
+              <div class="how__email-body">
+                <span class="how__email-text"></span><span class="how__email-cursor" aria-hidden="true"></span>
+              </div>
+            </div>
           </div>
 
           <div class="how__connector" aria-hidden="true">
@@ -271,6 +420,7 @@
       <div class="container">
         <div class="section-header observe-animate">
           <h2 class="section-title section-title--light">Une offre. Un prix. Zéro prise de tête.</h2>
+          <p class="section-subtitle" style="color:rgba(245,242,234,0.55)">Campagne de candidatures spontanées — 150€ sans abonnement</p>
         </div>
 
         <div class="pricing__layout">
@@ -376,6 +526,80 @@
                 </div>
               </li>
             </ol>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+      <div class="container">
+        <div class="section-header observe-animate">
+          <h2 class="section-title">Questions fréquentes</h2>
+          <p class="section-subtitle">Tout ce que tu veux savoir sur Rentice avant de te lancer.</p>
+        </div>
+
+        <div class="faq__list">
+
+          <div class="faq__item observe-animate" style="--stagger:0s">
+            <button class="faq__question" aria-expanded="false">
+              <span>C'est quoi le marché caché de l'alternance ?</span>
+              <svg class="faq__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="faq__answer"><div>
+              <p>70% des postes en alternance ne sont jamais publiés sur des jobboards comme Indeed ou Welcome to the Jungle. Les entreprises les pourvoient directement via leur réseau ou à partir de candidatures spontanées reçues. C'est ce qu'on appelle le marché caché. Rentice t'y donne accès en contactant directement les recruteurs par email personnalisé.</p>
+            </div></div>
+          </div>
+
+          <div class="faq__item observe-animate" style="--stagger:0.05s">
+            <button class="faq__question" aria-expanded="false">
+              <span>Comment fonctionne une campagne de candidature spontanée ?</span>
+              <svg class="faq__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="faq__answer"><div>
+              <p>Tu remplis un formulaire en 5 minutes : ton profil, tes secteurs cibles, ta localisation. On extrait ensuite 40 à 60 contacts recruteurs via Apollo, on rédige des emails personnalisés à ton nom, et on envoie une séquence de 3 messages sur 9 jours. Tu valides chaque email avant qu'il parte. Tu reçois les réponses positives directement.</p>
+            </div></div>
+          </div>
+
+          <div class="faq__item observe-animate" style="--stagger:0.1s">
+            <button class="faq__question" aria-expanded="false">
+              <span>Les emails envoyés semblent-ils humains aux recruteurs ?</span>
+              <svg class="faq__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="faq__answer"><div>
+              <p>Oui. Chaque email est personnalisé selon l'entreprise ciblée — secteur, taille, poste ouvert — et rédigé dans un style naturel. Tu lis et valides chaque message avant envoi. Les recruteurs reçoivent un email qui ressemble à une vraie démarche personnelle, pas à un envoi en masse.</p>
+            </div></div>
+          </div>
+
+          <div class="faq__item observe-animate" style="--stagger:0.15s">
+            <button class="faq__question" aria-expanded="false">
+              <span>Combien de temps avant de recevoir des réponses ?</span>
+              <svg class="faq__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="faq__answer"><div>
+              <p>La campagne se lance sous 48h après ton onboarding. Les premières réponses arrivent généralement entre J+3 et J+7. La séquence complète (3 emails + relances) dure 9 jours. On garantit des entretiens dans les 15 jours — si ce n'est pas le cas, on relance une deuxième campagne gratuitement.</p>
+            </div></div>
+          </div>
+
+          <div class="faq__item observe-animate" style="--stagger:0.2s">
+            <button class="faq__question" aria-expanded="false">
+              <span>Est-ce que Rentice est conforme au RGPD ?</span>
+              <svg class="faq__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="faq__answer"><div>
+              <p>Oui. Les contacts recruteurs sont enrichis via des sources professionnelles publiques (LinkedIn, sites entreprises). Les emails de prospection B2B vers des recruteurs entrent dans le cadre légal de la prospection professionnelle. Tes données personnelles ne sont jamais revendues et sont supprimées sur demande.</p>
+            </div></div>
+          </div>
+
+          <div class="faq__item observe-animate" style="--stagger:0.25s">
+            <button class="faq__question" aria-expanded="false">
+              <span>Que se passe-t-il si je n'obtiens aucun entretien ?</span>
+              <svg class="faq__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="faq__answer"><div>
+              <p>Si ta campagne ne génère aucun entretien dans les 15 jours, on relance une deuxième campagne gratuitement — nouveaux contacts, nouveaux secteurs ou nouvelles villes. Et si la deuxième ne donne rien non plus, on relance une troisième. Au total, tu es couvert sur ~4 semaines de prospection intensive, sans payer plus.</p>
+            </div></div>
           </div>
 
         </div>

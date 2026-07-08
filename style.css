@@ -1133,6 +1133,79 @@ ul { list-style: none; }
   color: rgba(245,242,234,0.7);
 }
 
+/* ---- Step 02 email typewriter ---- */
+
+.how__email-preview {
+  margin-top: 20px;
+  background: var(--cream-50);
+  border: 1px solid var(--cream-200);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  font-size: 11px;
+  position: relative;
+  z-index: 1;
+}
+
+.how__email-meta {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--cream-200);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.how__email-row {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  color: var(--cream-700);
+  font-size: 11px;
+  font-family: var(--font-mono);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.how__email-label {
+  font-weight: 600;
+  color: var(--sage-500);
+  flex-shrink: 0;
+  min-width: 32px;
+}
+
+.how__email-body {
+  padding: 10px 12px 12px;
+  min-height: 68px;
+  font-size: 12px;
+  color: var(--cream-700);
+  line-height: 1.65;
+  font-family: var(--font-body);
+}
+
+.how__email-text {
+  white-space: pre-wrap;
+}
+
+.how__email-cursor {
+  display: inline-block;
+  width: 1.5px;
+  height: 13px;
+  background: var(--green-900);
+  vertical-align: text-bottom;
+  margin-left: 1px;
+  animation: cursorBlink 0.75s step-end infinite;
+}
+
+.how__email-cursor--done {
+  animation-duration: 1.2s;
+  opacity: 0.5;
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
 .how__connector {
   display: flex;
   align-items: center;
@@ -1404,6 +1477,87 @@ ul { list-style: none; }
   color: rgba(245,242,234,0.55);
   font-style: italic;
   font-size: 12px;
+}
+
+/* ============================================
+   FAQ
+   ============================================ */
+
+.faq {
+  background: var(--cream-50);
+  padding: 96px 0;
+  border-top: 1px solid var(--cream-200);
+}
+
+.faq__list {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.faq__item {
+  border-bottom: 1px solid var(--cream-200);
+}
+
+.faq__item:first-child {
+  border-top: 1px solid var(--cream-200);
+}
+
+.faq__question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--green-900);
+  line-height: 1.4;
+  transition: color var(--transition);
+}
+
+.faq__question:hover {
+  color: var(--green-800);
+}
+
+.faq__icon {
+  flex-shrink: 0;
+  color: var(--sage-500);
+  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), color var(--transition);
+}
+
+.faq__item--open .faq__icon {
+  transform: rotate(45deg);
+  color: var(--green-900);
+}
+
+.faq__answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 350ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq__item--open .faq__answer {
+  grid-template-rows: 1fr;
+}
+
+.faq__answer > div {
+  overflow: hidden;
+}
+
+.faq__answer p {
+  font-size: 15px;
+  color: var(--cream-700);
+  line-height: 1.7;
+  padding-bottom: 22px;
 }
 
 /* ============================================

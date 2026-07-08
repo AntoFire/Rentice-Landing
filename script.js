@@ -82,6 +82,60 @@
     progressObserver.observe(progressFill.closest('.mock-card'));
   }
 
+  // ---- Step 02 email typewriter ----
+  const emailText = document.querySelector('.how__email-text');
+  const emailCursor = document.querySelector('.how__email-cursor');
+
+  if (emailText && 'IntersectionObserver' in window) {
+    const message = "Bonjour Marie,\n\nJ'ai vu que Publicis cherchait un profil en marketing digital. En alternance à NEOMA cette année, je pense que mon profil pourrait vous intéresser…";
+    let started = false;
+
+    const twObserver = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting && !started) {
+        started = true;
+        twObserver.disconnect();
+        let i = 0;
+        function typeNext() {
+          if (i >= message.length) {
+            emailCursor.classList.add('how__email-cursor--done');
+            return;
+          }
+          const ch = message[i++];
+          if (ch === '\n') {
+            emailText.appendChild(document.createElement('br'));
+          } else {
+            emailText.appendChild(document.createTextNode(ch));
+          }
+          const delay = ch === ',' || ch === '.' || ch === '…' ? 120 : ch === ' ' ? 28 : 38;
+          setTimeout(typeNext, delay);
+        }
+        setTimeout(typeNext, 500);
+      }
+    }, { threshold: 0.6 });
+
+    twObserver.observe(emailText.closest('.how__step'));
+  }
+
+  // ---- FAQ accordion ----
+  document.querySelectorAll('.faq__question').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      const item = btn.closest('.faq__item');
+      const isOpen = item.classList.contains('faq__item--open');
+
+      // Close all
+      document.querySelectorAll('.faq__item--open').forEach(function (el) {
+        el.classList.remove('faq__item--open');
+        el.querySelector('.faq__question').setAttribute('aria-expanded', 'false');
+      });
+
+      // Open clicked (unless it was already open)
+      if (!isOpen) {
+        item.classList.add('faq__item--open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
   // ---- Smooth scroll for anchor links ----
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener('click', function (e) {
