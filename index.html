@@ -3,8 +3,89 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rentice — Décroche ton alternance</title>
-  <meta name="description" content="Rentice lance des campagnes de candidatures spontanées pour les étudiants en alternance. Tu remplis un formulaire. On contacte les recruteurs à ta place." />
+  <title>Rentice — Trouver son alternance par candidature spontanée | Campagnes d'outreach recruteurs</title>
+  <meta name="description" content="Rentice contacte 40 à 60 recruteurs à ta place par email personnalisé. Campagnes de candidatures spontanées pour décrocher ton alternance en moins de 15 jours. Sans abonnement." />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://rentice.app/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://rentice.app/" />
+  <meta property="og:locale"      content="fr_FR" />
+  <meta property="og:site_name"   content="Rentice" />
+  <meta property="og:title"       content="Rentice — Décroche ton alternance par candidature spontanée" />
+  <meta property="og:description" content="Rentice contacte 40 à 60 recruteurs à ta place par email personnalisé. Des entretiens en moins de 15 jours, sans abonnement." />
+  <meta property="og:image"       content="https://rentice.app/og-image.png" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt"   content="Rentice — Campagnes d'alternance par candidature spontanée" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Rentice — Décroche ton alternance par candidature spontanée" />
+  <meta name="twitter:description" content="Rentice contacte 40 à 60 recruteurs à ta place. Des entretiens en moins de 15 jours." />
+  <meta name="twitter:image"       content="https://rentice.app/og-image.png" />
+
+  <!-- Schema JSON-LD : Organization + WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://rentice.app/#organization",
+        "name": "Rentice",
+        "url": "https://rentice.app",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://rentice.app/og-image.png"
+        },
+        "description": "Rentice lance des campagnes de candidatures spontanées pour les étudiants en recherche d'alternance. Nous contactons 40 à 60 recruteurs ciblés à ta place par emails personnalisés.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "rentice.contact@gmail.com",
+          "contactType": "customer support",
+          "availableLanguage": "French"
+        },
+        "sameAs": []
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://rentice.app/#website",
+        "url": "https://rentice.app",
+        "name": "Rentice",
+        "description": "Campagnes de candidatures spontanées pour décrocher ton alternance",
+        "publisher": { "@id": "https://rentice.app/#organization" },
+        "inLanguage": "fr-FR"
+      },
+      {
+        "@type": "Service",
+        "@id": "https://rentice.app/#service",
+        "name": "Campagne de candidature spontanée pour alternance",
+        "provider": { "@id": "https://rentice.app/#organization" },
+        "description": "Campagne d'outreach email personnalisé vers 40 à 60 recruteurs ciblés pour les étudiants en recherche d'alternance.",
+        "offers": {
+          "@type": "Offer",
+          "price": "150",
+          "priceCurrency": "EUR",
+          "priceValidUntil": "2026-12-31",
+          "availability": "https://schema.org/LimitedAvailability",
+          "description": "Campagne complète : extraction contacts, emails personnalisés, 3 relances sur 9 jours, rapport final."
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "France"
+        },
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "Étudiants en recherche d'alternance"
+        }
+      }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
