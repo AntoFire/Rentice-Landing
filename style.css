@@ -1847,8 +1847,8 @@ ul { list-style: none; }
     text-align: left;
   }
 
-  .cred__stat:first-child { padding-top: 24px; }
-  .cred__stat:last-child  { padding-bottom: 24px; }
+  .cred__stat:first-child { padding-top: 24px; padding-left: 24px; }
+  .cred__stat:last-child  { padding-bottom: 24px; padding-right: 24px; }
 
   .cred__divider {
     width: calc(100% - 48px);
