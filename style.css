@@ -52,6 +52,7 @@ body {
 
 button, a {
   -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 img, svg { display: block; max-width: 100%; }
@@ -212,6 +213,7 @@ ul { list-style: none; }
    ============================================ */
 
 .navbar {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -1661,7 +1663,7 @@ ul { list-style: none; }
 
 .footer {
   background: var(--green-900);
-  padding: 48px 0;
+  padding: 48px 0 calc(48px + env(safe-area-inset-bottom));
   border-top: 1px solid rgba(255,255,255,0.06);
 }
 
@@ -1900,6 +1902,11 @@ ul { list-style: none; }
 
   .waitlist__submit {
     width: 100%;
+  }
+
+  .waitlist__input,
+  .waitlist__select {
+    font-size: 16px;
   }
 
   /* Footer */
