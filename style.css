@@ -38,6 +38,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -46,6 +47,11 @@ body {
   color: var(--cream-700);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
 }
 
 img, svg { display: block; max-width: 100%; }
@@ -1771,6 +1777,38 @@ ul { list-style: none; }
    RESPONSIVE — MOBILE FIRST
    ============================================ */
 
+/* ============================================
+   TABLET — 1024px
+   ============================================ */
+
+@media (max-width: 1024px) {
+
+  .hero__inner {
+    gap: 40px;
+  }
+
+  .hero__title {
+    font-size: clamp(38px, 5vw, 52px);
+  }
+
+  .how__step {
+    padding: 28px 64px 28px 24px;
+  }
+
+  .pricing__layout {
+    gap: 20px;
+  }
+
+  .pricing__card {
+    padding: 32px 28px;
+  }
+
+}
+
+/* ============================================
+   MOBILE — 768px
+   ============================================ */
+
 @media (max-width: 768px) {
 
   /* Navbar */
@@ -1920,4 +1958,175 @@ ul { list-style: none; }
   .section-header {
     margin-bottom: 40px;
   }
+
+  /* Container padding */
+  .container {
+    padding: 0 20px;
+  }
+
+  /* Section subtitle */
+  .section-subtitle {
+    font-size: 16px;
+  }
+
+  /* Hero trust badges */
+  .hero__trust {
+    gap: 8px;
+  }
+
+  .hero__trust-sep {
+    display: none;
+  }
+
+  .hero__trust-item {
+    font-size: 12px;
+  }
+
+  /* Email preview */
+  .how__email-preview {
+    margin-top: 16px;
+  }
+
+  .how__email-body {
+    min-height: 48px;
+  }
+
+  .how__step {
+    padding: 28px 20px 24px;
+  }
+
+  .how__step-num {
+    font-size: 72px;
+    right: 10px;
+  }
+
+  /* FAQ */
+  .faq {
+    padding: 64px 0;
+  }
+
+  .faq__list {
+    max-width: 100%;
+  }
+
+  .faq__question {
+    font-size: 15px;
+    padding: 18px 0;
+  }
+
+  .faq__answer p {
+    font-size: 14px;
+  }
+
+}
+
+/* ============================================
+   SMALL PHONES — 480px
+   ============================================ */
+
+@media (max-width: 480px) {
+
+  .container {
+    padding: 0 16px;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 40px 0 56px;
+  }
+
+  .hero__title {
+    font-size: 32px;
+  }
+
+  .hero__subtitle {
+    font-size: 15px;
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero__social-proof {
+    flex-wrap: wrap;
+  }
+
+  /* Cred */
+  .cred {
+    padding: 48px 0;
+  }
+
+  .cred__stat-value {
+    font-size: 28px;
+  }
+
+  /* How */
+  .how {
+    padding: 48px 0;
+  }
+
+  .how__step {
+    padding: 24px 16px 20px;
+  }
+
+  .how__step-num {
+    font-size: 56px;
+  }
+
+  .how__step-title {
+    font-size: 19px;
+  }
+
+  /* Pricing */
+  .pricing {
+    padding: 48px 0;
+  }
+
+  .pricing__card {
+    padding: 28px 20px;
+  }
+
+  .pricing__amount {
+    font-size: 44px;
+  }
+
+  .pricing__guarantee {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .pricing__timeline {
+    padding: 24px 16px;
+  }
+
+  /* FAQ */
+  .faq {
+    padding: 48px 0;
+  }
+
+  .faq__question {
+    font-size: 14px;
+    gap: 12px;
+  }
+
+  /* Waitlist */
+  .waitlist {
+    padding: 48px 0;
+  }
+
+  /* Section headers */
+  .section-header {
+    margin-bottom: 32px;
+  }
+
+  .section-subtitle {
+    font-size: 15px;
+  }
+
 }
