@@ -6,6 +6,8 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- Phase 2 — pages contenu éditorial -->
   <url>
     <loc>https://rentice.app/trouver-alternance-en-aout/</loc>
     <lastmod>2026-07-24</lastmod>
@@ -21,6 +23,50 @@
   <url>
     <loc>https://rentice.app/marche-cache-alternance/</loc>
     <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Phase 3 — résultats -->
+  <url>
+    <loc>https://rentice.app/resultats/</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Phase 3 — cluster villes -->
+  <url>
+    <loc>https://rentice.app/alternance-paris/</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rentice.app/alternance-lyon/</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rentice.app/alternance-bordeaux/</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Phase 3 — cluster écoles -->
+  <url>
+    <loc>https://rentice.app/alternance-ecole-de-commerce/</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Phase 3 — cluster emails -->
+  <url>
+    <loc>https://rentice.app/email-candidature-spontanee-alternance/</loc>
+    <lastmod>2026-07-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
